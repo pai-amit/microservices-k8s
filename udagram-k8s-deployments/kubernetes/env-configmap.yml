@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+        AWS_BUCKET: "udagram-amit-dev"
+        AWS_PROFILE: "default"
+        AWS_REGION: "us-east-1"
+        JWT_SECRET: "bjqbcjbhbqjqnhbqwb6ey1euhbuhsyqxj383sbsygsq863ssdwd2"
+        POSTGRES_DB: "postgres"
+        POSTGRES_HOST: "udagramamitdev.cuwdljhv4uht.us-east-1.rds.amazonaws.com"
+        URL: "http://a82a46532cb154efdb444021ed2a7f46-1052422025.us-east-1.elb.amazonaws.com:8100"
+metadata:
+        name: env-config
