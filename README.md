@@ -1,2 +1,2 @@
-# microservices-k8s
-Deploy Microservices using Kubernetes and Travis CI
+# microservices-k8
+Implemented Microservices using Dockers and Kubernetes

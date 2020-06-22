@@ -1,0 +1,19 @@
+version: "3"
+services:
+  feed-api:
+    build:
+      context: ../../udagram-feed-api
+    image: amitmpai/udagram-feed-api
+  user-api:
+    build:
+      context: ../../udagram-user-api
+    image: amitmpai/udagram-user-api
+  frontend:
+    build:
+      context: ../../udagram-frontend  
+    image: amitmpai/udagram-frontend
+  reverse-proxy:
+    build:
+      context: ../../udagram-reverse-proxy
+    image: amitmpai/udagram-reverse-proxy
+
