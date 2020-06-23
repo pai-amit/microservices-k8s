@@ -4,9 +4,8 @@ Implemented Microservices using Dockers and Kubernetes
 
 ## CI/CD Pipeline
 
-The project uses Travis-CI as Continious integration platform.
+The project uses Travis-CI as CICD platform.
 
-![Alt text](screenshots/travisci.png?raw=true "Travis CI Build")
 
 ### Setup of the Travis CI/CD Pipeline
 
