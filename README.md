@@ -6,6 +6,10 @@ Implemented Microservices using Dockers and Kubernetes
 
 The project uses Travis-CI as CICD platform.
 
+## Kubernetes deployments
+
+Use the Shell script for deploying Environment configurations, AWS Secrets, Deployments and Services - [Kubernetes Deployment script](https://github.com/pai-amit/microservices-k8s/blob/master/udagram-k8s-deployments/kubernetes/create_all.sh).
+
 
 ### Setup of the Travis CI/CD Pipeline
 
