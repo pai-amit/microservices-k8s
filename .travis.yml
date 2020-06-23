@@ -1,4 +1,4 @@
-language: minimal
+language: python
 
 services: docker
 
@@ -6,6 +6,9 @@ env:
   - DOCKER_COMPOSE_VERSION=1.23.2
 
 before_install:
+  - pyenv global 3.7.1
+  - pip install -U pip
+  - pip install awscli
   - docker -v && docker-compose -v
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -16,10 +19,12 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
   - mkdir ${HOME}/.kube
   - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
+  - mkdir ${HOME}/.aws
+  - echo "$AWS_CONFIG" | base64 --decode > ${HOME}/.aws/config
+  - echo "$AWS_SECRET" | base64 --decode > ${HOME}/.aws/credentials
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 install:
-  - docker-compose --help
   - docker-compose -f udagram-k8s-deployments/docker/docker-compose-build.yml build --parallel
   - docker-compose -f udagram-k8s-deployments/docker/docker-compose-build.yml push
 

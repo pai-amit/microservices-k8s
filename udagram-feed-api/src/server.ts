@@ -16,8 +16,6 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
   const app = express();
   const port = 8080;
 
-  app.use(bodyParser.json());
-
   app.use(cors({
     allowedHeaders: [
       'Origin', 'X-Requested-With',
@@ -28,6 +26,8 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
     origin: config.url,
   }));
 
+  app.use(bodyParser.json());
+  
   app.use('/api/v0/', IndexRouter);
 
   // Root URI call
