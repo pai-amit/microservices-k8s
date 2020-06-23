@@ -4,8 +4,12 @@ services: docker
 
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
+  - PATH=$HOME/.local/bin:$PATH
 
 before_install:
+  - pyenv global 3.7.1
+  - pip install -U pip
+  - pip install awscli
   - docker -v && docker-compose -v
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -19,7 +23,6 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 install:
-  - docker-compose --help
   - docker-compose -f udagram-k8s-deployments/docker/docker-compose-build.yml build --parallel
   - docker-compose -f udagram-k8s-deployments/docker/docker-compose-build.yml push
 
