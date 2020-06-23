@@ -21,7 +21,7 @@ before_install:
   - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
   - mkdir ${HOME}/.aws
   - echo "$AWS_CONFIG" | base64 --decode > ${HOME}/.aws/config
-  - echo "$AWS_SECRET” | base64 --decode > ${HOME}/.aws/credentials
+  - echo "$AWS_SECRET" | base64 --decode > ${HOME}/.aws/credentials
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 install:
