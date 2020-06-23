@@ -4,7 +4,6 @@ services: docker
 
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
-  - PATH=$HOME/.local/bin:$PATH
 
 before_install:
   - pyenv global 3.7.1
@@ -20,6 +19,9 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
   - mkdir ${HOME}/.kube
   - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
+  - mkdir ${HOME}/.aws
+  - echo "$AWS_CONFIG" | base64 --decode > ${HOME}/.aws/config
+  - echo "$AWS_SECRET” | base64 --decode > ${HOME}/.aws/credentials
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 install:
